@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-export default function MobileMenu({ isOpen, setIsOpen }) {
+interface MobileMenuProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
   return (
     <div className={`absolute top-16 left-0 w-full bg-white shadow-md md:hidden ${isOpen ? "block" : "hidden"}`}>
       <div className="flex flex-col space-y-4 p-4">
