@@ -1,8 +1,7 @@
-import NextAuth, { NextAuthOptions, User } from "next-auth";
+import NextAuth, { NextAuthOptions, User, Account, Profile, Session } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
-import { Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
 
 const prisma = new PrismaClient();
@@ -41,7 +40,11 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Invalid password");
         }
 
-        return { id: user.id, email: user.email, role: user.role } as CustomUser;
+        return {
+          id: user.id,
+          email: user.email,
+          role: user.role,
+        } as CustomUser;
       },
     }),
   ],
@@ -53,14 +56,24 @@ export const authOptions: NextAuthOptions = {
           ...session.user,
           id: token.id as string,
           role: token.role as string,
-        } as CustomUser; // Type assertion
+        } as CustomUser;
       }
       return session;
     },
-    async jwt({ token, user }: { token: JWT; user?: CustomUser }): Promise<JWT> {
+    async jwt({
+      token,
+      user,
+    }: {
+      token: JWT;
+      user?: User | null;
+      account?: Account | null;
+      profile?: Profile | null;
+      trigger?: "signIn" | "signUp" | "update";
+      isNewUser?: boolean;
+    }): Promise<JWT> {
       if (user) {
-        token.id = user.id;
-        token.role = user.role;
+        token.id = (user as CustomUser).id;
+        token.role = (user as CustomUser).role;
       }
       return token;
     },
