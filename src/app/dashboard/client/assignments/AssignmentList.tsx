@@ -2,10 +2,19 @@
 
 import AssignmentItem from "./AssignmentItem";
 
-const assignments = [
-  { id: 1, title: "Machine Learning Report", status: "In Progress", due: "Mar 10", file: "ml_report.pdf" },
-  { id: 2, title: "Math Homework", status: "Pending", due: "Mar 15", file: "math_homework.docx" },
-  { id: 3, title: "History Essay", status: "Completed", due: "Mar 05", file: "history_essay.pdf" },
+// Define the correct type
+type Assignment = {
+  id: string;  
+  title: string;
+  status: "In Progress" | "Pending" | "Completed";  // Ensure the type matches
+  due: string;
+  file: string;
+};
+
+const assignments: Assignment[] = [
+  { id: "1", title: "Machine Learning Report", status: "In Progress", due: "Mar 10", file: "ml_report.pdf" },
+  { id: "2", title: "Math Homework", status: "Pending", due: "Mar 15", file: "math_homework.docx" },
+  { id: "3", title: "History Essay", status: "Completed", due: "Mar 05", file: "history_essay.pdf" },
 ];
 
 export default function AssignmentList() {
