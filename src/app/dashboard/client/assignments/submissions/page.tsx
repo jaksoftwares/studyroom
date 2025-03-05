@@ -1,7 +1,12 @@
 "use client";
 
 import SubmissionForm from "./SubmissionForm";
-import SubmissionList from "./SubmissionCard";
+import SubmissionList from "./SubmissionList"; // Import correctly
+
+const submissions = [
+  { id: 1, title: "AI Research Paper", date: "Feb 25, 2025", status: "Submitted" },
+  { id: 2, title: "Data Science Report", date: "Feb 20, 2025", status: "Under Review" },
+];
 
 export default function SubmissionsPage() {
   return (
@@ -15,7 +20,7 @@ export default function SubmissionsPage() {
       {/* List of Submitted Assignments */}
       <div className="mt-8">
         <h2 className="text-2xl font-semibold text-gray-700 mb-4">Your Submissions</h2>
-        <SubmissionList />
+        <SubmissionList submissions={submissions} />  {/* ✅ Pass submissions */}
       </div>
     </section>
   );

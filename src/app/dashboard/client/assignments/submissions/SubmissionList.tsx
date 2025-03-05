@@ -2,12 +2,19 @@
 
 import SubmissionCard from "./SubmissionCard";
 
-const submissions = [
-  { id: 1, title: "AI Research Paper", date: "Feb 25, 2025", status: "Submitted" },
-  { id: 2, title: "Data Science Report", date: "Feb 20, 2025", status: "Under Review" },
-];
+// Define prop types
+type Submission = {
+  id: number;
+  title: string;
+  date: string;
+  status: string;
+};
 
-export default function SubmissionList() {
+type SubmissionListProps = {
+  submissions: Submission[];
+};
+
+export default function SubmissionList({ submissions }: SubmissionListProps) {
   return (
     <div className="space-y-4">
       {submissions.length > 0 ? (
