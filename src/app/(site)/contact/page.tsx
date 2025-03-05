@@ -101,7 +101,7 @@ export default function ContactUs() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 text-center bg-blue-600 text-white rounded-lg">
+      <section className="py-16 text-center bg-blue-950 text-white rounded-lg">
         <h2 className="text-3xl font-bold">Need Help? Contact Us Now</h2>
         <p className="mt-4 text-lg">Our support team is available 24/7 to assist you.</p>
       </section>

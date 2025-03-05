@@ -111,7 +111,7 @@ export default function Pricing() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-16 text-center bg-blue-600 text-white rounded-lg">
+      <section className="py-16 text-center bg-blue-950 text-white rounded-lg">
         <h2 className="text-3xl font-bold">Ready to Excel?</h2>
         <p className="mt-2 text-lg">Choose a plan and start your academic success journey today.</p>
         <Link href="/auth/signup" className="mt-6 inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">

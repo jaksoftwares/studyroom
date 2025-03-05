@@ -13,7 +13,6 @@ const assignmentData = {
 
 export default function AssignmentDetails() {
   const router = useRouter();
-  const { id } = router.query;
 
   return (
     <div className="p-6">
