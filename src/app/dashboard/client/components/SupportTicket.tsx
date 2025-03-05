@@ -1,6 +1,12 @@
 "use client";
 
-export default function SupportTicket({ subject, status, date }) {
+type SupportTicketProps = {
+  subject: string;
+  status: "Resolved" | "Pending" | "Open"; // Ensures status is restricted to specific values
+  date: string;
+};
+
+export default function SupportTicket({ subject, status, date }: SupportTicketProps) {
   return (
     <div className="bg-white shadow-md p-4 rounded-lg flex justify-between">
       <div>

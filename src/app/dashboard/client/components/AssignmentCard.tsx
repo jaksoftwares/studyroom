@@ -1,6 +1,12 @@
 "use client";
 
-export default function AssignmentCard({ title, status, deadline }) {
+type AssignmentProps = {
+  title: string;
+  status: "Completed" | "Pending" | "In Progress"; // Ensure status is a valid type
+  deadline: string;
+};
+
+export default function AssignmentCard({ title, status, deadline }: AssignmentProps) {
   return (
     <div className="bg-white shadow-md p-4 rounded-lg border-l-4 border-blue-500">
       <h3 className="text-lg font-semibold">{title}</h3>
